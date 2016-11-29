@@ -1,0 +1,56 @@
+{
+  "name": "touchjs",
+  "version": "0.2.14",
+  "description": "clouda event and gesture lib touch.js",
+  "main": "touch.js",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/einsteinhx/touchjs.git"
+  },
+  "keywords": [
+    "baidu",
+    "clouda",
+    "touch",
+    "touch.js",
+    "gesture"
+  ],
+  "author": {
+    "name": "clouda team"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/einsteinhx/touchjs/issues"
+  },
+  "spm": {
+    "main": "touch.js"
+  },
+  "_id": "touchjs@0.2.14",
+  "dist": {
+    "shasum": "f5585b4ea14809bfc4edb40a51e626d01851742e",
+    "tarball": "https://registry.npmjs.org/touchjs/-/touchjs-0.2.14.tgz"
+  },
+  "_from": "touchjs@latest",
+  "_npmVersion": "1.3.2",
+  "_npmUser": {
+    "name": "huangxin",
+    "email": "einsteinhx@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "huangxin",
+      "email": "einsteinhx@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "f5585b4ea14809bfc4edb40a51e626d01851742e",
+  "_resolved": "https://registry.npmjs.org/touchjs/-/touchjs-0.2.14.tgz"
+}
