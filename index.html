@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="touch.js"></script>
-  <script src="zepto.js/dist/zepto.min.js"></script>
-  <style>
-    .imgbox{
-      width:300px;
-      height:267px;
-      position:fixed;
-      left:0px;
-      right:0px;
-      top:0px;
-      bottom:0px;
-      margin:auto;
-      border:2px solid black;
-      overflow: hidden;
-    }
-    .image{
-      width:400%;
-      height:100%;
-    }
-    .imgbox a{
-      width:300px;
-      height:267px;
-      float:left;
-      display:inline;
-    }
-  </style>
-  <script>
-    window.onload=function(){
-      var image=document.querySelector(".image");
-      var imgbox=document.querySelector(".imgbox");
-      image.onmousedown=function(e){
-        e.preventDefault();
-      }
-      image.onmousemove=function(e){
-        e.preventDefault();
-      }
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="touch.js"></script>
+    <script src="zepto.js/dist/zepto.min.js"></script>
+    <style>
+        .imgbox{
+            width:300px;
+            height:267px;
+            position:fixed;
+            left:0px;
+            right:0px;
+            top:0px;
+            bottom:0px;
+            margin:auto;
+            border:2px solid black;
+            overflow: hidden;
+        }
+        .image{
+            width:400%;
+            height:100%;
+        }
+        .imgbox a{
+            width:300px;
+            height:267px;
+            float:left;
+            display:inline;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+           var image=document.querySelector(".image");
+           var imgbox=document.querySelector(".imgbox");
+            image.onmousedown=function(e){
+                e.preventDefault();
+            }
+            image.onmousemove=function(e){
+                e.preventDefault();
+            }
 //            var now=0;
 //            var next=0;
 //            touch.on(images,"swipeleft",function(){
@@ -63,66 +63,73 @@
 //                images[next].style.left=0;
 //                now=next;
 //            })
-      var marginLeft;
-      var num=0;
-      var widths=parseInt(getComputedStyle(imgbox,null)["width"]);
-      touch.on("body","dragstart",".image",function(){
+     var marginLeft;
+     var num=0;
+     var widths=parseInt(getComputedStyle(imgbox,null)["width"]);
+    touch.on("body","dragstart",".image",function(){
         marginLeft=parseInt($(".image").css("marginLeft"))?parseInt($(".image").css("marginLeft")):0;
-      });
-      touch.on("body","drag",".image",function(e){
         $(".image").css({
-          marginLeft:marginLeft+ e.x,
-          transition:"none",
+            transition:"none",
         })
-      })
-      touch.on("body","dragend",".image",function(e){
+
+    });
+    touch.on("body","drag",".image",function(e){
+        $(".image").css({
+            marginLeft:marginLeft+ e.x,
+        })
+    })
+            touch.on("body","dragend",".image",function(e){
 
 
-        if(e.x<100){
-          $(".image").css({
-            marginLeft:-num*widths,
-            transition:"margin 1s ease"
-          })
-        }
+                if(Math.abs(e.x)<150){
+                    $(".image").css({
+                        marginLeft:-num*widths,
+                        transition:"margin 1s ease"
+                    })
+                }else{
+                    
+                    if(e.direction=="left"){
+                        num++;
+                        if(num==5){
+                            num=$(".image a").length-1;
+                        }
+                    }else if(e.direction="right"){
+                        num--;
+                        if(num==-1){
+                            num=0;
+                        }
+                    }
+                    $(".image").css({
+                        marginLeft:-num*widths,
+                        transition:"margin 1s ease"
+                    })
 
-        if(e.direction=="left"){
-          num++;
-          if(num==5){
-            num=$(".image a").length-1;
-            $(".image").css({
-              marginLeft:-num*widths,
-              transition:"margin 1s ease"
+                }
+
+
+
+
+
+
+
+
             })
-          }
-        }else if(e.direction="right"){
-          num--;
-          if(num<0){
-            num=0;
-          }
-          $(".image").css({
-            marginLeft:-num*widths,
-            transition:"margin 1s ease"
-          })
+
+
+
+
+
         }
-
-
-      })
-
-
-
-
-
-    }
-  </script>
+    </script>
 </head>
 <body>
-<div class="imgbox">
-  <div class="image">
-    <a href="#"><img src="img/1.png" alt=""></a>
-    <a href="#"><img src="img/2.png" alt=""></a>
-    <a href="#"><img src="img/3.png" alt=""></a>
-    <a href="#"><img src="img/4.png" alt=""></a>
-  </div>
-</div>
+   <div class="imgbox">
+       <div class="image">
+           <a href="#"><img src="img/1.png" alt=""></a>
+           <a href="#"><img src="img/2.png" alt=""></a>
+           <a href="#"><img src="img/3.png" alt=""></a>
+           <a href="#"><img src="img/4.png" alt=""></a>
+       </div>
+   </div>
 </body>
 </html>
